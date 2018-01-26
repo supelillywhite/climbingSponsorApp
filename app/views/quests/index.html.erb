@@ -1,0 +1,9 @@
+<h1>Quests#index</h1>
+
+<% @quest.each do |quest| %>
+  <div>
+    <p><%= quest.name %></p>
+    <p><%= quest.description %></p>
+    <hr>
+  </div>
+<% end %>
