@@ -11,7 +11,7 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
-
+    @quest.user_id = current_user.id
     if @quest.save
       redirect_to @quest, notice: "Your quest was created successfully."
     else
@@ -33,6 +33,6 @@ class QuestsController < ApplicationController
     end
 
     def quest_params
-      params.require(:quest).permit(:name, :description)
+      params.require(:quest).permit(:name, :description, :user_id)
     end
 end
